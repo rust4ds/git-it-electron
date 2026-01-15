@@ -42,6 +42,11 @@ jobs:
         run: npm run build-all
       - name: Package mac
         run: npm run pack-mac
+      - name: Show out dir
+        run: |
+          echo "=== pwd ==="; pwd
+          echo "=== ls project root ==="; ls -la
+          echo "=== ls out (if exists) ==="; ls -la out || echo "out missing"
       - name: Archive mac output
         run: |
           cd out
