@@ -33,7 +33,11 @@ app.on('ready', function appReady () {
     width: 980,
     height: 760,
     title: 'Git-it',
-    icon: iconPath
+    icon: iconPath,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false
+    }
   })
 
   var appPath = app.getPath('userData')
@@ -80,8 +84,8 @@ app.on('ready', function appReady () {
   })
 
   ipcMain.on('open-file-dialog', function (event) {
-    var files = dialog.showOpenDialog(mainWindow, { properties: [ 'openFile', 'openDirectory' ] })
-    if (files) {
+    var files = dialog.showOpenDialogSync(mainWindow, { properties: [ 'openFile', 'openDirectory' ] })
+    if (files && files.length) {
       event.sender.send('selected-directory', files)
     }
   })
@@ -93,8 +97,8 @@ app.on('ready', function appReady () {
       title: 'Confirm Clearing Statuses',
       message: 'Are you sure you want to clear the status for every challenge?'
     }
-    dialog.showMessageBox(options, function cb (response) {
-      event.sender.send('confirm-clear-response', response)
+    dialog.showMessageBox(mainWindow, options).then(function (result) {
+      event.sender.send('confirm-clear-response', result.response)
     })
   })
 
