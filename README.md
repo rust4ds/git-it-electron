@@ -38,7 +38,7 @@ I'm quite partial (I'm on the team!) but [Atom](http://atom.io) is a great text 
 
 #### Git-it
 
-You can view the [releases](http://github.com/jlord/git-it-electron/releases) section of this repository to find the download for your operating system. Click to download your version. Once it has downloaded to your default Downloads directory, unzip the folder and run the Git-it executable. The executables for Mac, Windows and Linux:
+You can view the [releases](./releases) section of this repository to find the download for your operating system. Click to download your version. Once it has downloaded to your default Downloads directory, unzip the folder and run the Git-it executable. The executables for Mac, Windows and Linux:
 
 ![executables](https://cloud.githubusercontent.com/assets/1305617/14696588/2b10abf8-0731-11e6-945e-f3d57114bce9.png)
 
