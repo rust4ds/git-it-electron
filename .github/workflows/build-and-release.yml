@@ -7,6 +7,9 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
 jobs:
   create-release:
     runs-on: ubuntu-latest
@@ -17,6 +20,8 @@ jobs:
       - name: Create draft release
         id: create_release
         uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref_name }}
           release_name: ${{ github.ref_name }}
@@ -44,6 +49,8 @@ jobs:
         working-directory: out
       - name: Upload mac to release
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.create-release.outputs.upload_url }}
           asset_path: out/git-it-darwin-arm64.tar.gz
@@ -71,6 +78,8 @@ jobs:
         working-directory: out
       - name: Upload linux to release
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.create-release.outputs.upload_url }}
           asset_path: out/git-it-linux-x64.tar.gz
@@ -96,6 +105,8 @@ jobs:
           powershell -Command "Compress-Archive -Path 'out\\*' -DestinationPath 'out\\git-it-win32-ia32.zip'"
       - name: Upload windows to release
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.create-release.outputs.upload_url }}
           asset_path: out/git-it-win32-ia32.zip
