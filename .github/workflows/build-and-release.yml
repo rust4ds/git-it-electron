@@ -49,6 +49,9 @@ jobs:
           echo "=== ls out (if exists) ==="; ls -la out || echo "out missing"
       - name: Archive mac output
         run: |
+          echo "=== pwd ==="; pwd
+          echo "=== ls project root ==="; ls -la
+          echo "=== ls out (if exists) ==="; ls -la out || echo "out missing"
           cd out
           tar -czf git-it-darwin-arm64.tar.gz *
         working-directory: out
