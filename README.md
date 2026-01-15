@@ -1,3 +1,7 @@
+# rust4ds Fork Notes
+
+> This is a fork from the original repo to fix and update to run on latest systems.
+
 # Git-it (Desktop App)
 
 [![Build Status](https://travis-ci.org/jlord/git-it-electron.svg?branch=master)](https://travis-ci.org/jlord/git-it-electron) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
