@@ -45,15 +45,15 @@ jobs:
       - name: Archive mac output
         run: |
           cd out
-          ditto -c -k --sequesterRsrc --keepParent Git-it-darwin-arm64 git-it-darwin-arm64.zip
+          ditto -c -k --sequesterRsrc --keepParent Git-it-MacOS-arm64 git-it-MacOS-arm64.zip
       - name: Upload mac to release
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.create-release.outputs.upload_url }}
-          asset_path: out/git-it-darwin-arm64.zip
-          asset_name: git-it-darwin-arm64.zip
+          asset_path: out/git-it-MacOS-arm64.zip
+          asset_name: git-it-MacOS-arm64.zip
           asset_content_type: application/zip
 
   build-linux:
