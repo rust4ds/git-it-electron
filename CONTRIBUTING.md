@@ -71,19 +71,32 @@ $ npm run build-all
 Each generated folder is put in the `/out` directory.
 
 ```bash
-$ npm run pack-mac
+$ npm run pack-mac-arm64
 ```
 
-This will output the contents of the application to a folder at `../out/Git-it-darwin-x64`.
+This will output the contents of the application to a folder at `../out/Git-it-MacOS-arm64`.
+
+```bash
+$ npm run pack-mac-x64
+```
+
+This will output the contents of the application to a folder at `../out/Git-it-MacOS-x64`.
 
 ```bash
 $ npm run pack-lin
 ```
 
 This will output the contents of the application to a folder at `../out/Git-it-linux-x64`.
+
 ```bash
 $ npm run pack-win
 ```
+
+```bash
+$ npm run pack-win
+```
+
+This will output the contents of the application to a folder at `../out/Git-it-win32-ia32`.
 
 A note from `electron-packager`, the module we use to package these apps:
 
